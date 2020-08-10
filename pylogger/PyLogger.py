@@ -69,11 +69,11 @@ class PyLogger(object):
 
     def print_header(self):
         col_names = []
-        for coli, col_name in enumerate(self.columns):
-            col_width = self.formatters[coli].col_width
+        for indx, col_name in enumerate(self.columns):
+            col_width = self.formatters[indx].col_width
             if len(col_name) > col_width:
                 col_name = col_name[:col_width - 3] + '...'
-            col_name = self.formatters[coli].just(col_name, col_width)
+            col_name = self.formatters[indx].just(col_name, col_width)
             col_names.append(col_name)
 
         header = self.join_row_items(*col_names)
@@ -93,7 +93,7 @@ class PyLogger(object):
         if self.border:
             row = '|{}|'.format('|'.join(args))
         else:
-            row = '{}'.join(args)
+            row = '{}'.format(" ").join(args)
         return row
 
     def print_line(self, text):
