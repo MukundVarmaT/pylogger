@@ -1,5 +1,5 @@
 import sys
-import formatter as fmt
+from . import formatter as fmt
 
 type2fmt = {
     float: fmt.FloatFormatter,
